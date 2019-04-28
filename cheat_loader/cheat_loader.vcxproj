@@ -142,6 +142,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -156,6 +157,7 @@
     <ClInclude Include="imgui\imstb_textedit.h" />
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="program_binary.hpp" />
+    <ClInclude Include="resource.hpp" />
     <ClInclude Include="sockets.hpp" />
     <ClInclude Include="task_manager.hpp" />
     <ClInclude Include="xorstr.hpp" />
@@ -172,6 +174,12 @@
     <ClCompile Include="program_binary.cpp" />
     <ClCompile Include="sockets.cpp" />
     <ClCompile Include="task_manager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="cheat_loader.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="resource\icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

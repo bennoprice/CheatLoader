@@ -9,7 +9,7 @@ extern LRESULT ImGui_ImplWin32_WndProcHandler(HWND hwnd, UINT msg, WPARAM wparam
 namespace gui
 {
 	constexpr uint32_t wnd_flags = ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse;
-	const ImVec2 wnd_size = { 220, 120 };
+	const ImVec2 wnd_size = { 220, 117 };
 
 	class menu
 	{

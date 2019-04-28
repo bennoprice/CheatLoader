@@ -11,8 +11,8 @@
 
 namespace global
 {
-	std::unique_ptr<management::task_manager> task_manager;
 	std::unique_ptr<gui::menu> menu;
+	std::unique_ptr<management::task_manager> task_manager;
 }
 
 void safe_exit()
@@ -44,6 +44,7 @@ void load(std::string_view username, std::string_view password)
 
 	auto tcp_client = global::task_manager->register_task<std::shared_ptr<sockets::tcp_client>>(_xor_("creating tcp socket").c_str(), []()
 	{
+		//return std::make_shared<sockets::tcp_client>(_xor_("curiosity.clever-code.net").c_str(), _xor_("8000").c_str());
 		return std::make_shared<sockets::tcp_client>(_xor_("192.168.2.128").c_str(), _xor_("8000").c_str());
 	}, safe_exit, true);
 

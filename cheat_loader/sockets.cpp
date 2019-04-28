@@ -24,6 +24,7 @@ namespace sockets
 	tcp_client::~tcp_client()
 	{
 		disconnect();
+		::freeaddrinfo(_result);
 		::WSACleanup();
 	}
 

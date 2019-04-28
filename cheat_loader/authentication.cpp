@@ -48,7 +48,7 @@ namespace loader
 
 		std::array<char, 10> size_response_buf = { 0 };
 		if (_tcp_client->receive_raw(size_response_buf) == 0)
-			global::task_manager->exception(_xor_("failed to get binary size").c_str());
+			global::task_manager->exception(_xor_("failed to connect to server").c_str()); // failed to get binary size
 
 		return ::atoi(size_response_buf.data());
 	}

@@ -5,7 +5,7 @@
     set_time_limit(0);
 
     $timout = 3;
-    $file = file_get_contents("cheats/audio.exe");
+    $file = file_get_contents("cheats/video.exe");
     $file_size = strlen($file);
     $socket = stream_socket_server("tcp://192.168.2.128:8000");
     stream_set_blocking($socket, false);

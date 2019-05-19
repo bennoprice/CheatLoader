@@ -33,7 +33,8 @@ namespace sockets
 		for (auto ptr = _result; ptr != nullptr; ptr = ptr->ai_next)
 		{
 			_socket = ::socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol);
-			::connect(_socket, ptr->ai_addr, ptr->ai_addrlen);
+			if (::connect(_socket, ptr->ai_addr, ptr->ai_addrlen) == 0)
+				break;
 		}
 	}
 

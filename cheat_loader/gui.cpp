@@ -84,7 +84,7 @@ namespace gui
 		ImGuiStyle& style = ImGui::GetStyle();
 		ImGuiIO& io = ImGui::GetIO();
 
-		io.IniFilename = NULL;
+		io.IniFilename = 0;
 
 		style.WindowRounding = 0.f;
 		style.WindowPadding = { 10.f, 11.f };

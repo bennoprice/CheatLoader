@@ -2,19 +2,20 @@
     include "db.inc.php";
 
     //error_reporting();
-    set_time_limit(0);
+    //set_time_limit(0);
 
     $timout = 3;
-    $file = file_get_contents("cheats/video.exe");
+
+    $file = file_get_contents("../../../media/cheats/RainbowSix.exe");
     $file_size = strlen($file);
-    $socket = stream_socket_server("tcp://192.168.2.128:8000");
+    $socket = stream_socket_server("tcp://".gethostbyname(gethostname()).":8000");
     stream_set_blocking($socket, false);
 
     echo "[+] cached binary\n";
     echo "[+] cached file size\n";
     echo "[+] created tcp socket\n\n";
 
-    function socket_write($conn, $data)
+    function _socket_write($conn, $data)
     {
         $size = strlen($data);
         for($i = 0; $i < $size;)
@@ -49,7 +50,7 @@
                 {
                     case '1': // get program size
                         echo " : size request\n";
-                        socket_write($conn, $file_size);
+                        _socket_write($conn, $file_size);
                         break;
                     case '2': // get program
                         echo " : binary request\n";
@@ -60,11 +61,11 @@
                         $password = $mysqli->real_escape_string($request[2]);
                         if(!$mysqli->query("select id from users where username='$username' and password='$password'")->num_rows)
                         {
-                            socket_write($conn, '1'); // incorrect username or password
+                            _socket_write($conn, '1'); // incorrect username or password
                             break;
                         }
                         
-                        socket_write($conn, $file);
+                        _socket_write($conn, $file);
                         break;
                 }
                 
